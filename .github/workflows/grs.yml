@@ -27,8 +27,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PAT }}
         with:
           USERNAME: ${{ github.repository_owner }}
-          OUTPUT_DIR: profile
-          UTCTIMEZONE: "America/Los_Angeles"
+          BRANCH_NAME: main
+          UTC_OFFSET: -7
+          AUTO_PUSH: false
 
       - name: Commit cards
         run: |
@@ -36,5 +37,5 @@ jobs:
           git config --global user.email "github-actions@users.noreply.github.com"
           git remote set-url origin https://${{ secrets.PAT }}@github.com/${{ github.repository }}.git
           git add profile/*.svg profile/*.png
-          git commit -m "Update README cards" || echo "No changes to commit"
+          git diff --staged --quiet || git commit -m "Update README cards"
           git push origin main
