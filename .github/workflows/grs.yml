@@ -13,12 +13,20 @@ jobs:
         with:
           token: ${{ secrets.PAT }}
 
-      - name: Generate stats card
+      - name: Generate stats card (commits)
         uses: readme-tools/github-readme-stats-action@v1
         with:
           card: stats
-          options: username=${{ github.repository_owner }}&show_icons=true&count_private=true&theme=dark
+          options: username=${{ github.repository_owner }}&show_icons=true&count_private=true&theme=dark&include_all_commits=true
           path: profile/stats.svg
+          token: ${{ secrets.PAT }}
+
+      - name: Generate contributions card (total activity)
+        uses: readme-tools/github-readme-stats-action@v1
+        with:
+          card: contributions
+          options: username=${{ github.repository_owner }}&theme=dark
+          path: profile/contributions.svg
           token: ${{ secrets.PAT }}
 
       - name: Commit cards
