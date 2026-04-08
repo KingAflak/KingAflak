@@ -40,7 +40,7 @@ Music will go here!
 </td>
 
 <td colspan="2" align="center">
-<img src="profile/stats.svg" width="450" alt="KingAflak's GitHub stats"/>
+https://raw.githubusercontent.com/KingAflak/KingAflak/main/profile-summary-card-output/city_lights/0-profile-details.svg
 </td>
 </tr>
 
